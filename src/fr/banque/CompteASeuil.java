@@ -21,15 +21,20 @@ public class CompteASeuil extends Compte implements ICompteASeuil{
 	
 	// Méthodes 
 	
-	public void retirer (double uneValeur) {
-		if ((getSolde() - uneValeur) > getSeuil ()) {
-			setSolde(getSolde() - uneValeur);
+	public void retirer (double uneValeur) throws BanqueException {
+		if	((getSolde() - uneValeur) < getSeuil ()) { 
+			throw new BanqueException("Somme retirée trop importante, dépassement du seuil impossible.");
 			
-		} else {
-			System.out.println("Impossible de retirer au delà de la limite seuil fixée à " + getSeuil() + ".");
+		}
+			else {
+				setSolde(getSolde() - uneValeur);
+			}
+				
 		}
 		
-	}
+
+	
+
 
 
 

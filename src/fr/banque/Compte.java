@@ -37,7 +37,7 @@ public class Compte {
 	 * @param unMontant, montant à retirer au solde
 	 */
 	
-	public void retirer(double unMontant) {
+	public void retirer(double unMontant) throws BanqueException{
 		this.setSolde (this.getSolde()- unMontant);
 	}
 	

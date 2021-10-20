@@ -40,42 +40,54 @@ public class CompteASeuilRemunere extends CompteRemunere implements ICompteASeui
 	 */
 	
 	
-	public void retirer (double uneValeur) {
-		if ((getSolde() - uneValeur) > getSeuil ()) {
-			setSolde(getSolde() - uneValeur);
-			
-		} else {
-			System.out.println("Impossible de retirer au delà de la limite seuil fixée à " + getSeuil() + ".");
-		}
-		
-	}
-
+//	public void retirer (double uneValeur) throws BanqueException{
+//		if ((getSolde() - uneValeur) > getSeuil ()) {
+//			setSolde(getSolde() - uneValeur);
+//	
+//		}
+//			else ((getSolde() - uneValeur) < getSeuil ()) {
+//			throw new BanqueException("Somme retirée trop importante, dépassement du seuil impossible.");
+//		}
+//		
+//
+//	}
 	
-
+	public void retirer (double uneValeur) throws BanqueException {
+		if	((getSolde() - uneValeur) < getSeuil ()) { 
+			throw new BanqueException("Somme retirée trop importante, dépassement du seuil impossible.");
+			
+		}
+			else {
+				setSolde(getSolde() - uneValeur);
+			}
+				
+		}
 
 	
 	// Getters et setters
 
 	
-	
 	public double getSeuil() {
-		return getSeuil();
+		return seuil;
 	}
-	
-	
-	
-	public void setSeuil(double unSeuil) {
-		this.seuil = unSeuil;
+
+
+	public void setSeuil(double seuil) {
+		this.seuil = seuil;
 	}
+
+	
+	
 
 
 	@Override
 	public String toString() {
-		return "CompteASeuilRemunere [seuil=" + seuil + ", getTaux()=" + getTaux() + ", getNumeroCompte()="
+		return "CompteASeuilRemunere [seuil=" + getSeuil() + ", getTaux()=" + getTaux() + ", getNumeroCompte()="
 				+ getNumeroCompte() + ", getSolde()=" + getSolde() + "]";
 	}
 
-	
+
+
 	
 	
 	
