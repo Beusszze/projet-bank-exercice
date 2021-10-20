@@ -50,7 +50,7 @@ public class Client {
 	 * @param unCompte, compte à ajouter au tableau
 	 */
 	
-	public void ajouterUnCompte (Compte unCompte) {
+	public void ajouterUnCompte (Compte unCompte) throws BanqueException {
 		int nbComptes = 0;
 
 		for (int i = 0; i < this.tableauComptes.length; i++) {
@@ -70,7 +70,7 @@ public class Client {
 			
 		}
 		if (nbComptes >= 5) {
-			System.out.println("Il n'y a plus de places pour un nouveau compte ! e");
+			throw new BanqueException ("Il n'y a plus de places pour un nouveau compte ! ");
 		}
 	}
 	
