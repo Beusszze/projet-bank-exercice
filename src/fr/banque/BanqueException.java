@@ -2,7 +2,10 @@ package fr.banque;
 
 public class BanqueException extends Exception {
 	
-	
+	/**
+	 * Exception class that I used to manage several exceptions that can occurs during the process
+	 * 
+	 */
 	
 	
 	// Constructors inherates from mother Class "Exception"
